@@ -1,0 +1,16 @@
+/* Custom styles that Tailwind utilities don't cover */
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #130b01; }
+::-webkit-scrollbar-thumb { background: #d7b899; border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: #7b4b2a; }
+
+canvas { display: block; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
