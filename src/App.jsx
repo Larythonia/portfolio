@@ -9,6 +9,7 @@ import Skills from "./components/sections/Skills";
 import Projects from "./components/sections/Projects";
 import Stats from "./components/sections/Stats";
 import Contact from "./components/sections/Contact";
+import ScrollButton from "./components/ui/ScrollButton";
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
         </main>
         <Footer />
       </div>
+       <ScrollButton />
     </>
   );
 }

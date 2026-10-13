@@ -7,7 +7,7 @@ import { profile } from "../../data";
 export default function About() {
   return (
     <section id="about" className="bg-black/20 px-6 py-14">
-      <div className="mx-auto grid max-w-6xl overflow-hidden rounded-2xl bg-night md:grid-cols-[1fr_1.1fr]">
+      <div className="mx-auto grid max-w-6xl overflow-hidden rounded-2xl bg-night md:grid-cols-[1.1fr_1fr] text-center md:text-left">
         {/* Picture (left) */}
         <div className="relative h-80 bg-latte md:h-auto md:min-h-[26rem] md:[clip-path:polygon(0_0,100%_0,82%_100%,0_100%)]">
           <img
@@ -29,7 +29,7 @@ export default function About() {
             maintainable code as the foundation of every build, so sites load
             fast, work on any device, and keep visitors engaged.
           </p>
-          <Button href={profile.resume} download variant="outline" className="mt-6 self-start">
+          <Button href={profile.resume} download variant="outline" className="mt-6 self-center md:self-start">
             Download resume
             <Download size={16} />
           </Button>

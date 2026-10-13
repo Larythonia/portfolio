@@ -31,10 +31,10 @@ export default function Contact() {
         }}
       />
 
-      <div className="relative z-10 mx-auto grid max-w-6xl gap-16 md:grid-cols-3">
-        <div className="relative z-10 mx-auto max-w-xl ">
+      <div className="relative z-10 mx-auto grid max-w-xl gap-8 md:gap-14 md:grid-cols-3 md:max-w-full">
+        <div className="relative z-10 mx-auto max-w-xl text-center px-6 md:text-left md:px-0">
         <SectionLabel>Let's work together</SectionLabel>
-        <h2 className="text-xl font-semibold text-cream md:text-3xl">
+        <h2 className="text-2xl font-semibold text-cream md:text-3xl">
           I'm Available to Build, Collaborate and Learn.
         </h2>
         <p className="mx-auto mt-4 max-w-md text-cream/85">
@@ -53,12 +53,12 @@ export default function Contact() {
         </form>
 
 
-        <ul className="flex flex-col content-center gap-4 p-8:">
+        <ul className="flex flex-col content-center gap-4 p-8 ">
           {details.map(({ Icon, label, value }) => (
-            <li key={label} className="flex items-center gap-2">
+            <li key={label} className="flex items-center justify-center gap-2 md:justify-start">
               <Icon size={30} strokeWidth={1.5} className="shrink-0 text-caramel" />
               <div className="min-w-0">
-                <p className="truncate font-semibold uppercase italic text-cream">
+                <p className="truncate font-semibold uppercase text-cream">
                   {label}
                 </p>
                 <p className="truncate text-xs text-cream/70" title={value}>

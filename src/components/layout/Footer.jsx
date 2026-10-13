@@ -1,6 +1,7 @@
 import { Github, Linkedin, Twitter } from "lucide-react";
 import { profile, navLinks } from "../../data";
 
+
 const socials = [
   { Icon: Github, href: profile.github, label: "GitHub" },
   { Icon: Linkedin, href: profile.linkedin, label: "LinkedIn" },

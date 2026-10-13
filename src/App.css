@@ -1,9 +1,7 @@
-/* Custom styles that Tailwind utilities don't cover */
-
 ::-webkit-scrollbar { width: 10px; }
-::-webkit-scrollbar-track { background: #130b01; }
-::-webkit-scrollbar-thumb { background: #d7b899; border-radius: 6px; }
-::-webkit-scrollbar-thumb:hover { background: #7b4b2a; }
+::-webkit-scrollbar-track { background: #1c120d; }
+::-webkit-scrollbar-thumb { background: #7b4b2a; border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: #c9915f; }
 
 canvas { display: block; }
 
@@ -12,5 +10,6 @@ canvas { display: block; }
     animation: none !important;
     transition: none !important;
     scroll-behavior: auto !important;
+    ::-webkit-scrollbar-thumb { background: #c9915f; border-radius: 6px; }
   }
 }
