@@ -10,6 +10,6 @@ canvas { display: block; }
     animation: none !important;
     transition: none !important;
     scroll-behavior: auto !important;
-    ::-webkit-scrollbar-thumb { background: #c9915f; border-radius: 6px; }
+    ::-webkit-scrollbar-thumb { background: #c9915f; border-radius: 4px; }
   }
 }

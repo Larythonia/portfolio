@@ -1,30 +1,33 @@
-import { useEffect, useState } from "react";
-import { ArrowUp, ArrowDown } from "lucide-react";
+import { useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 
-export default function ScrollButton() {
-  const [atTop, setAtTop] = useState(true);
+export default function ScrollProgress() {
+  const bar = useRef(null);
 
   useEffect(() => {
-    const onScroll = () => setAtTop(window.scrollY < window.innerHeight / 2);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const update = () => {
+      const root = document.scrollingElement || document.documentElement;
+      const max = root.scrollHeight - window.innerHeight;
+      const progress = max > 0 ? root.scrollTop / max : 0;
+      if (bar.current) bar.current.style.transform = `scaleX(${progress})`;
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
   }, []);
 
-  const handleClick = () =>
-    window.scrollTo({
-      top: atTop ? document.documentElement.scrollHeight : 0,
-      behavior: "smooth",
-    });
-
-  return (
-    <button
-      type="button"
-      onClick={handleClick}
-      aria-label={atTop ? "Scroll to bottom" : "Scroll to top"}
-      className="fixed bottom-6 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-caramel text-night shadow-lg shadow-black/40 transition hover:bg-cream focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-caramel"
-    >
-      {atTop ? <ArrowDown size={22} /> : <ArrowUp size={22} />}
-    </button>
+  return createPortal(
+    <div className="pointer-events-none fixed inset-x-0 top-0 z-[9999] h-1 bg-white/5">
+      <div
+        ref={bar}
+        className="h-full origin-left bg-caramel"
+        style={{ transform: "scaleX(0)" }}
+      />
+    </div>,
+    document.body
   );
 }
